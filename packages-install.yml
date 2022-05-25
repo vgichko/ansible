@@ -1,0 +1,25 @@
+- name: Установка нескольких пакетов на всех узлах
+  hosts: test_servers
+  become_method: sudo
+  become_user: root
+
+  tasks:
+  - name: Установить
+    yum:
+      name: "{{ package }}"
+    vars:
+      package:
+      - mc
+      - wget
+      - tar
+      state: latest
+  
+  - name: Установить
+    apt:
+      name: "{{ package }}"
+    vars:
+      package:
+      - mc
+      - wget
+      - tar
+      state: latest
