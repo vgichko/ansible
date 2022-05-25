@@ -1,0 +1,16 @@
+---
+- name: Обновление всех пакетов
+  hosts: test_servers
+  become_method: sudo
+  become_user: root
+
+  tasks:
+  - name: Обновить все пакеты
+    yum:
+      name: '*'
+      state: latest
+    tasks:
+  - name: Обновить все пакеты
+    apt:
+      name: '*'
+      state: latest    
